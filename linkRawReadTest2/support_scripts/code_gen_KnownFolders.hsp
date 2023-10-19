@@ -1,0 +1,90 @@
+#runtime "hsp3cl"
+
+sdim rawdata
+
+notesel rawdata
+
+noteload "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um\\KnownFolders.h"
+
+
+sdim original_material
+sdim names_material
+sdim both_material
+
+sdim current
+
+max_length_of_original =0
+max_length_of_names =0 
+
+
+repeat notemax
+
+	noteget current , cnt
+	
+	if(instr(current , 0 , 	"DEFINE_KNOWN_FOLDER") !=0) : continue
+
+
+
+	stpos = instr(current , 0 ,	"FOLDERID_")
+
+
+	if(stpos == -1 ) : continue
+	if(barpos == -1 ) : continue
+
+	endpos = instr(current , stpos , ",")
+
+	if(endpos == -1 ) : continue
+
+	m1 =  strmid(current , stpos , endpos)
+
+	barpos = instr(m1 , 0 ,	"_")
+
+	m2 = strmid(m1 , barpos + 1 , strlen(m1) - barpos - 1)
+
+
+	original_material+=m1+"\n"
+	names_material+=m2+"\n"
+	both_material+=m1+"\n"+m2+"\n"
+
+	
+	len_current =  strlen(m1)
+	if(max_length_of_original<len_current) : max_length_of_original= len_current
+	len_current =  strlen(m2)
+	if(max_length_of_names<len_current) : max_length_of_names= len_current
+
+	
+loop
+
+
+
+
+
+
+notesel both_material
+
+
+
+guidFolderIDs_array="const KnownFolderItem knownFolderItems["+notemax/2+"] = {\n"
+
+
+
+
+repeat notemax/2
+
+	noteget current_id , cnt*2
+	noteget current_name , cnt*2+1
+
+	if(cnt!=0) : guidFolderIDs_array+=",\n"
+
+	guidFolderIDs_array+="\t" + strf("{%s,L\"%s\",L\"%s\"}" , current_id ,current_id , current_name)
+
+
+loop
+
+guidFolderIDs_array+="\n};"
+
+print guidFolderIDs_array
+
+
+print "max_length_of_original = "+max_length_of_original
+print "max_length_of_names = "+max_length_of_names

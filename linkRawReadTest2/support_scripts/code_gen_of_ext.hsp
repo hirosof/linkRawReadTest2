@@ -1,0 +1,110 @@
+#runtime "hsp3cl"
+sdim macro_names
+
+macro_names ={"
+ConsoleDataBlock
+ConsoleFEDataBlock
+DarwinDataBlock
+EnvironmentVariableDataBlock
+IconEnvironmentDataBlock
+KnownFolderDataBlock
+PropertyStoreDataBlock
+ShimDataBlock
+SpecialFolderDataBlock
+TrackerDataBlock
+VistaAndAboveIDListDataBlock
+"}
+
+notesel macro_names
+
+sdim value
+sdim result_c
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("ExtraData_%s *mp_%s;" , value,value)
+	print result_c
+
+loop
+
+print ""
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("this->m_extra.mp_%s = nullptr;" , value)
+	print result_c
+
+loop
+
+print ""
+
+
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("const ExtraData_%s* getExtra%sPtr(void) const;" , value,value)
+	print result_c
+
+loop
+
+// 		const uint32_t ExtraData_ConsoleDataBlockSignature = 0;
+print ""
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("const uint32_t ExtraData_%sSignature = 0;" , value)
+	print result_c
+
+loop
+
+print ""
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("case ExtraData_%sSignature:\n" , value)
+
+	result_c += strf("\tif(dataBlockSize==0) this->m_extra.mp_%s = reinterpret_cast<ExtraData_%s*>(pData);\n" , value,value)
+	result_c += strf("\telse return E_FAIL;\n")
+
+	result_c += strf("\tbreak;")
+	print result_c
+
+loop
+
+
+print ""
+print ""
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("case ExtraData_%sSignature:" , value)
+	result_c += strf("wprintf(L\" (%s)\");break;" , value)
+
+	print result_c
+
+loop
+
+print ""
+print ""
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("const uint32_t ExtraData_%sSize = 0;" , value)
+	
+	print result_c
+
+loop

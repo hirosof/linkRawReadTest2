@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "linkRawReadTest2", "linkRawReadTest2\linkRawReadTest2.vcxproj", "{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Debug|x64.ActiveCfg = Debug|x64
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Debug|x64.Build.0 = Debug|x64
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Debug|x86.ActiveCfg = Debug|Win32
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Debug|x86.Build.0 = Debug|Win32
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Release|x64.ActiveCfg = Release|x64
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Release|x64.Build.0 = Release|x64
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Release|x86.ActiveCfg = Release|Win32
+		{380D920B-2F25-47B6-9DB9-75AFAE8BECBE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE578639-832E-417B-9801-D102336A238F}
+	EndGlobalSection
+EndGlobal

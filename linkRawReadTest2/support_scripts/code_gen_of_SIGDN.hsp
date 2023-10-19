@@ -1,0 +1,32 @@
+#runtime "hsp3cl"
+sdim macro_names
+
+macro_names ={"
+SIGDN_NORMALDISPLAY
+SIGDN_PARENTRELATIVEPARSING
+SIGDN_DESKTOPABSOLUTEPARSING
+SIGDN_PARENTRELATIVEEDITING
+SIGDN_DESKTOPABSOLUTEEDITING
+SIGDN_FILESYSPATH
+SIGDN_URL
+SIGDN_PARENTRELATIVEFORADDRESSBAR
+SIGDN_PARENTRELATIVE
+SIGDN_PARENTRELATIVEFORUI
+"}
+
+notesel macro_names
+
+sdim value
+sdim result_c
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("case %s: " , value)
+	result_c += strf("wprintf(L\"%s\");" , value)
+	result_c += "break;"
+	
+	print result_c
+
+loop

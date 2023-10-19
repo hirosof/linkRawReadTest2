@@ -1,0 +1,34 @@
+#runtime "hsp3cl"
+sdim macro_names
+
+macro_names ={"
+READONLY
+HIDDEN
+SYSTEM
+Reserved1
+DIRECTORY
+ARCHIVE
+Reserved2
+NORMAL
+TEMPORARY
+SPARSE_FILE
+REPARSE_POINT
+COMPRESSED
+OFFLINE
+NOT_CONTENT_INDEXED
+ENCRYPTED
+"}
+
+notesel macro_names
+
+sdim value
+sdim result_c
+
+repeat notemax
+
+	noteget value , cnt
+	
+	result_c = strf("\"FILE_ATTRIBUTE_%s\"," , value)
+	print result_c
+
+loop

@@ -1,0 +1,173 @@
+#pragma once
+#include <Windows.h>
+#include <cstdint>
+#include <string>
+#include <KnownFolders.h>
+
+namespace hirosof {
+
+    namespace Supports{
+
+        namespace KnownFolders {
+
+
+            struct  KnownFolderItem {
+                GUID folderID;
+                wchar_t  originalName[32];
+                wchar_t names[24];
+            };
+
+
+            const KnownFolderItem knownFolderItems[141] = {
+                    {FOLDERID_NetworkFolder,L"FOLDERID_NetworkFolder",L"NetworkFolder"},
+                    {FOLDERID_ComputerFolder,L"FOLDERID_ComputerFolder",L"ComputerFolder"},
+                    {FOLDERID_InternetFolder,L"FOLDERID_InternetFolder",L"InternetFolder"},
+                    {FOLDERID_ControlPanelFolder,L"FOLDERID_ControlPanelFolder",L"ControlPanelFolder"},
+                    {FOLDERID_PrintersFolder,L"FOLDERID_PrintersFolder",L"PrintersFolder"},
+                    {FOLDERID_SyncManagerFolder,L"FOLDERID_SyncManagerFolder",L"SyncManagerFolder"},
+                    {FOLDERID_SyncSetupFolder,L"FOLDERID_SyncSetupFolder",L"SyncSetupFolder"},
+                    {FOLDERID_ConflictFolder,L"FOLDERID_ConflictFolder",L"ConflictFolder"},
+                    {FOLDERID_SyncResultsFolder,L"FOLDERID_SyncResultsFolder",L"SyncResultsFolder"},
+                    {FOLDERID_RecycleBinFolder,L"FOLDERID_RecycleBinFolder",L"RecycleBinFolder"},
+                    {FOLDERID_ConnectionsFolder,L"FOLDERID_ConnectionsFolder",L"ConnectionsFolder"},
+                    {FOLDERID_Fonts,L"FOLDERID_Fonts",L"Fonts"},
+                    {FOLDERID_Desktop,L"FOLDERID_Desktop",L"Desktop"},
+                    {FOLDERID_Startup,L"FOLDERID_Startup",L"Startup"},
+                    {FOLDERID_Programs,L"FOLDERID_Programs",L"Programs"},
+                    {FOLDERID_StartMenu,L"FOLDERID_StartMenu",L"StartMenu"},
+                    {FOLDERID_Recent,L"FOLDERID_Recent",L"Recent"},
+                    {FOLDERID_SendTo,L"FOLDERID_SendTo",L"SendTo"},
+                    {FOLDERID_Documents,L"FOLDERID_Documents",L"Documents"},
+                    {FOLDERID_Favorites,L"FOLDERID_Favorites",L"Favorites"},
+                    {FOLDERID_NetHood,L"FOLDERID_NetHood",L"NetHood"},
+                    {FOLDERID_PrintHood,L"FOLDERID_PrintHood",L"PrintHood"},
+                    {FOLDERID_Templates,L"FOLDERID_Templates",L"Templates"},
+                    {FOLDERID_CommonStartup,L"FOLDERID_CommonStartup",L"CommonStartup"},
+                    {FOLDERID_CommonPrograms,L"FOLDERID_CommonPrograms",L"CommonPrograms"},
+                    {FOLDERID_CommonStartMenu,L"FOLDERID_CommonStartMenu",L"CommonStartMenu"},
+                    {FOLDERID_PublicDesktop,L"FOLDERID_PublicDesktop",L"PublicDesktop"},
+                    {FOLDERID_ProgramData,L"FOLDERID_ProgramData",L"ProgramData"},
+                    {FOLDERID_CommonTemplates,L"FOLDERID_CommonTemplates",L"CommonTemplates"},
+                    {FOLDERID_PublicDocuments,L"FOLDERID_PublicDocuments",L"PublicDocuments"},
+                    {FOLDERID_RoamingAppData,L"FOLDERID_RoamingAppData",L"RoamingAppData"},
+                    {FOLDERID_LocalAppData,L"FOLDERID_LocalAppData",L"LocalAppData"},
+                    {FOLDERID_LocalAppDataLow,L"FOLDERID_LocalAppDataLow",L"LocalAppDataLow"},
+                    {FOLDERID_InternetCache,L"FOLDERID_InternetCache",L"InternetCache"},
+                    {FOLDERID_Cookies,L"FOLDERID_Cookies",L"Cookies"},
+                    {FOLDERID_History,L"FOLDERID_History",L"History"},
+                    {FOLDERID_System,L"FOLDERID_System",L"System"},
+                    {FOLDERID_SystemX86,L"FOLDERID_SystemX86",L"SystemX86"},
+                    {FOLDERID_Windows,L"FOLDERID_Windows",L"Windows"},
+                    {FOLDERID_Profile,L"FOLDERID_Profile",L"Profile"},
+                    {FOLDERID_Pictures,L"FOLDERID_Pictures",L"Pictures"},
+                    {FOLDERID_ProgramFilesX86,L"FOLDERID_ProgramFilesX86",L"ProgramFilesX86"},
+                    {FOLDERID_ProgramFilesCommonX86,L"FOLDERID_ProgramFilesCommonX86",L"ProgramFilesCommonX86"},
+                    {FOLDERID_ProgramFilesX64,L"FOLDERID_ProgramFilesX64",L"ProgramFilesX64"},
+                    {FOLDERID_ProgramFilesCommonX64,L"FOLDERID_ProgramFilesCommonX64",L"ProgramFilesCommonX64"},
+                    {FOLDERID_ProgramFiles,L"FOLDERID_ProgramFiles",L"ProgramFiles"},
+                    {FOLDERID_ProgramFilesCommon,L"FOLDERID_ProgramFilesCommon",L"ProgramFilesCommon"},
+                    {FOLDERID_UserProgramFiles,L"FOLDERID_UserProgramFiles",L"UserProgramFiles"},
+                    {FOLDERID_UserProgramFilesCommon,L"FOLDERID_UserProgramFilesCommon",L"UserProgramFilesCommon"},
+                    {FOLDERID_AdminTools,L"FOLDERID_AdminTools",L"AdminTools"},
+                    {FOLDERID_CommonAdminTools,L"FOLDERID_CommonAdminTools",L"CommonAdminTools"},
+                    {FOLDERID_Music,L"FOLDERID_Music",L"Music"},
+                    {FOLDERID_Videos,L"FOLDERID_Videos",L"Videos"},
+                    {FOLDERID_Ringtones,L"FOLDERID_Ringtones",L"Ringtones"},
+                    {FOLDERID_PublicPictures,L"FOLDERID_PublicPictures",L"PublicPictures"},
+                    {FOLDERID_PublicMusic,L"FOLDERID_PublicMusic",L"PublicMusic"},
+                    {FOLDERID_PublicVideos,L"FOLDERID_PublicVideos",L"PublicVideos"},
+                    {FOLDERID_PublicRingtones,L"FOLDERID_PublicRingtones",L"PublicRingtones"},
+                    {FOLDERID_ResourceDir,L"FOLDERID_ResourceDir",L"ResourceDir"},
+                    {FOLDERID_LocalizedResourcesDir,L"FOLDERID_LocalizedResourcesDir",L"LocalizedResourcesDir"},
+                    {FOLDERID_CommonOEMLinks,L"FOLDERID_CommonOEMLinks",L"CommonOEMLinks"},
+                    {FOLDERID_CDBurning,L"FOLDERID_CDBurning",L"CDBurning"},
+                    {FOLDERID_UserProfiles,L"FOLDERID_UserProfiles",L"UserProfiles"},
+                    {FOLDERID_Playlists,L"FOLDERID_Playlists",L"Playlists"},
+                    {FOLDERID_SamplePlaylists,L"FOLDERID_SamplePlaylists",L"SamplePlaylists"},
+                    {FOLDERID_SampleMusic,L"FOLDERID_SampleMusic",L"SampleMusic"},
+                    {FOLDERID_SamplePictures,L"FOLDERID_SamplePictures",L"SamplePictures"},
+                    {FOLDERID_SampleVideos,L"FOLDERID_SampleVideos",L"SampleVideos"},
+                    {FOLDERID_PhotoAlbums,L"FOLDERID_PhotoAlbums",L"PhotoAlbums"},
+                    {FOLDERID_Public,L"FOLDERID_Public",L"Public"},
+                    {FOLDERID_ChangeRemovePrograms,L"FOLDERID_ChangeRemovePrograms",L"ChangeRemovePrograms"},
+                    {FOLDERID_AppUpdates,L"FOLDERID_AppUpdates",L"AppUpdates"},
+                    {FOLDERID_AddNewPrograms,L"FOLDERID_AddNewPrograms",L"AddNewPrograms"},
+                    {FOLDERID_Downloads,L"FOLDERID_Downloads",L"Downloads"},
+                    {FOLDERID_PublicDownloads,L"FOLDERID_PublicDownloads",L"PublicDownloads"},
+                    {FOLDERID_SavedSearches,L"FOLDERID_SavedSearches",L"SavedSearches"},
+                    {FOLDERID_QuickLaunch,L"FOLDERID_QuickLaunch",L"QuickLaunch"},
+                    {FOLDERID_Contacts,L"FOLDERID_Contacts",L"Contacts"},
+                    {FOLDERID_SidebarParts,L"FOLDERID_SidebarParts",L"SidebarParts"},
+                    {FOLDERID_SidebarDefaultParts,L"FOLDERID_SidebarDefaultParts",L"SidebarDefaultParts"},
+                    {FOLDERID_PublicGameTasks,L"FOLDERID_PublicGameTasks",L"PublicGameTasks"},
+                    {FOLDERID_GameTasks,L"FOLDERID_GameTasks",L"GameTasks"},
+                    {FOLDERID_SavedGames,L"FOLDERID_SavedGames",L"SavedGames"},
+                    {FOLDERID_Games,L"FOLDERID_Games",L"Games"},
+                    {FOLDERID_SEARCH_MAPI,L"FOLDERID_SEARCH_MAPI",L"SEARCH_MAPI"},
+                    {FOLDERID_SEARCH_CSC,L"FOLDERID_SEARCH_CSC",L"SEARCH_CSC"},
+                    {FOLDERID_Links,L"FOLDERID_Links",L"Links"},
+                    {FOLDERID_UsersFiles,L"FOLDERID_UsersFiles",L"UsersFiles"},
+                    {FOLDERID_UsersLibraries,L"FOLDERID_UsersLibraries",L"UsersLibraries"},
+                    {FOLDERID_SearchHome,L"FOLDERID_SearchHome",L"SearchHome"},
+                    {FOLDERID_OriginalImages,L"FOLDERID_OriginalImages",L"OriginalImages"},
+                    {FOLDERID_DocumentsLibrary,L"FOLDERID_DocumentsLibrary",L"DocumentsLibrary"},
+                    {FOLDERID_MusicLibrary,L"FOLDERID_MusicLibrary",L"MusicLibrary"},
+                    {FOLDERID_PicturesLibrary,L"FOLDERID_PicturesLibrary",L"PicturesLibrary"},
+                    {FOLDERID_VideosLibrary,L"FOLDERID_VideosLibrary",L"VideosLibrary"},
+                    {FOLDERID_RecordedTVLibrary,L"FOLDERID_RecordedTVLibrary",L"RecordedTVLibrary"},
+                    {FOLDERID_HomeGroup,L"FOLDERID_HomeGroup",L"HomeGroup"},
+                    {FOLDERID_HomeGroupCurrentUser,L"FOLDERID_HomeGroupCurrentUser",L"HomeGroupCurrentUser"},
+                    {FOLDERID_DeviceMetadataStore,L"FOLDERID_DeviceMetadataStore",L"DeviceMetadataStore"},
+                    {FOLDERID_Libraries,L"FOLDERID_Libraries",L"Libraries"},
+                    {FOLDERID_PublicLibraries,L"FOLDERID_PublicLibraries",L"PublicLibraries"},
+                    {FOLDERID_UserPinned,L"FOLDERID_UserPinned",L"UserPinned"},
+                    {FOLDERID_ImplicitAppShortcuts,L"FOLDERID_ImplicitAppShortcuts",L"ImplicitAppShortcuts"},
+                    {FOLDERID_AccountPictures,L"FOLDERID_AccountPictures",L"AccountPictures"},
+                    {FOLDERID_PublicUserTiles,L"FOLDERID_PublicUserTiles",L"PublicUserTiles"},
+                    {FOLDERID_AppsFolder,L"FOLDERID_AppsFolder",L"AppsFolder"},
+                    {FOLDERID_StartMenuAllPrograms,L"FOLDERID_StartMenuAllPrograms",L"StartMenuAllPrograms"},
+                    {FOLDERID_CommonStartMenuPlaces,L"FOLDERID_CommonStartMenuPlaces",L"CommonStartMenuPlaces"},
+                    {FOLDERID_ApplicationShortcuts,L"FOLDERID_ApplicationShortcuts",L"ApplicationShortcuts"},
+                    {FOLDERID_RoamingTiles,L"FOLDERID_RoamingTiles",L"RoamingTiles"},
+                    {FOLDERID_RoamedTileImages,L"FOLDERID_RoamedTileImages",L"RoamedTileImages"},
+                    {FOLDERID_Screenshots,L"FOLDERID_Screenshots",L"Screenshots"},
+                    {FOLDERID_CameraRoll,L"FOLDERID_CameraRoll",L"CameraRoll"},
+                    {FOLDERID_SkyDrive,L"FOLDERID_SkyDrive",L"SkyDrive"},
+                    {FOLDERID_OneDrive,L"FOLDERID_OneDrive",L"OneDrive"},
+                    {FOLDERID_SkyDriveDocuments,L"FOLDERID_SkyDriveDocuments",L"SkyDriveDocuments"},
+                    {FOLDERID_SkyDrivePictures,L"FOLDERID_SkyDrivePictures",L"SkyDrivePictures"},
+                    {FOLDERID_SkyDriveMusic,L"FOLDERID_SkyDriveMusic",L"SkyDriveMusic"},
+                    {FOLDERID_SkyDriveCameraRoll,L"FOLDERID_SkyDriveCameraRoll",L"SkyDriveCameraRoll"},
+                    {FOLDERID_SearchHistory,L"FOLDERID_SearchHistory",L"SearchHistory"},
+                    {FOLDERID_SearchTemplates,L"FOLDERID_SearchTemplates",L"SearchTemplates"},
+                    {FOLDERID_CameraRollLibrary,L"FOLDERID_CameraRollLibrary",L"CameraRollLibrary"},
+                    {FOLDERID_SavedPictures,L"FOLDERID_SavedPictures",L"SavedPictures"},
+                    {FOLDERID_SavedPicturesLibrary,L"FOLDERID_SavedPicturesLibrary",L"SavedPicturesLibrary"},
+                    {FOLDERID_RetailDemo,L"FOLDERID_RetailDemo",L"RetailDemo"},
+                    {FOLDERID_Device,L"FOLDERID_Device",L"Device"},
+                    {FOLDERID_DevelopmentFiles,L"FOLDERID_DevelopmentFiles",L"DevelopmentFiles"},
+                    {FOLDERID_Objects3D,L"FOLDERID_Objects3D",L"Objects3D"},
+                    {FOLDERID_AppCaptures,L"FOLDERID_AppCaptures",L"AppCaptures"},
+                    {FOLDERID_LocalDocuments,L"FOLDERID_LocalDocuments",L"LocalDocuments"},
+                    {FOLDERID_LocalPictures,L"FOLDERID_LocalPictures",L"LocalPictures"},
+                    {FOLDERID_LocalVideos,L"FOLDERID_LocalVideos",L"LocalVideos"},
+                    {FOLDERID_LocalMusic,L"FOLDERID_LocalMusic",L"LocalMusic"},
+                    {FOLDERID_LocalDownloads,L"FOLDERID_LocalDownloads",L"LocalDownloads"},
+                    {FOLDERID_RecordedCalls,L"FOLDERID_RecordedCalls",L"RecordedCalls"},
+                    {FOLDERID_AllAppMods,L"FOLDERID_AllAppMods",L"AllAppMods"},
+                    {FOLDERID_CurrentAppMods,L"FOLDERID_CurrentAppMods",L"CurrentAppMods"},
+                    {FOLDERID_AppDataDesktop,L"FOLDERID_AppDataDesktop",L"AppDataDesktop"},
+                    {FOLDERID_AppDataDocuments,L"FOLDERID_AppDataDocuments",L"AppDataDocuments"},
+                    {FOLDERID_AppDataFavorites,L"FOLDERID_AppDataFavorites",L"AppDataFavorites"},
+                    {FOLDERID_AppDataProgramData,L"FOLDERID_AppDataProgramData",L"AppDataProgramData"}
+            };
+
+
+            const std::wstring  getOriginalNameFromFolderID( GUID id );
+
+
+        }
+
+    }
+
+}
