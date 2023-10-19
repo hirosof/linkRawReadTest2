@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# HSP temp File and obj File
+
+hsptmp
+obj
